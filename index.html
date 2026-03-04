@@ -3,493 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Towson View Properties</title>
-    <meta name="description" content="Welcome to Towson View Properties - Professional Property Management">
+    <title>Unit 5602 – Towson View Properties</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --text: #333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            font-family: 'DM Sans', sans-serif;
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 1rem 5%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-links a {
-            margin-left: 12px;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Units Dropdown */
-        .dropdown {
-            position: relative;
-            margin-left: 12px;
-        }
-
-        .dropdown-btn {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 5px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-family: 'DM Sans', sans-serif;
-            transition: background 0.2s;
-        }
-
-        .dropdown-btn:hover {
-            background: #2980b9;
-        }
-
-        .dropdown-btn .arrow {
-            font-size: 0.7rem;
-            transition: transform 0.2s;
-        }
-
-        .dropdown:hover .arrow {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: calc(100% + 6px);
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            min-width: 220px;
-            overflow: hidden;
-            z-index: 200;
-        }
-
-        .dropdown:hover .dropdown-menu,
-        .dropdown:focus-within .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu .menu-header {
-            background: var(--primary);
-            color: white;
-            padding: 10px 16px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .dropdown-menu a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 16px;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            border-bottom: 1px solid #f0f0f0;
-            transition: background 0.15s;
-            margin-left: 0;
-        }
-
-        .dropdown-menu a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-menu a:hover {
-            background: #f0f7ff;
-            color: var(--accent);
-        }
-
-        .unit-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--light);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            flex-shrink: 0;
-        }
-
-        .unit-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .unit-info span {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .unit-info small {
-            font-size: 0.75rem;
-            color: #888;
-        }
-
-        /* Hero Banner */
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.55), rgba(44, 62, 80, 0.55)),
-                        url('20220811_215752004-5602.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 150px 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        .btn:hover {
-            background: #2980b9;
-        }
-
-        /* Units Overview Section */
-        .units-overview {
-            padding: 4rem 5%;
-            background: #f8f9fa;
-            text-align: center;
-        }
-
-        .units-overview h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .units-overview p.subtitle {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .units-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .unit-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .unit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.13);
-        }
-
-        .unit-card-img {
-            height: 160px;
-            background: linear-gradient(rgba(44, 62, 80, 0.45), rgba(44, 62, 80, 0.45)),
-                        url('20200821_085919.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .unit-number-badge {
-            background: white;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        }
-
-        .unit-card-body {
-            padding: 1.2rem 1.5rem;
-        }
-
-        .unit-card-body h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            margin-bottom: 4px;
-        }
-
-        .unit-card-body p {
-            font-size: 0.85rem;
-            color: #888;
-            margin-bottom: 12px;
-        }
-
-        .unit-card-link {
-            font-size: 0.9rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        /* Tenant Portal Section */
-        .services {
-            padding: 4rem 5%;
-            text-align: center;
-            background: white;
-            flex: 1;
-        }
-
-        .services h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-            font-family: 'Playfair Display', serif;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: auto;
-        }
+        :root { --primary: #2c3e50; --accent: #3498db; --light: #ecf0f1; --text: #333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+        nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .nav-links a { margin-left: 12px; text-decoration: none; color: var(--text); font-weight: 500; font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--accent); }
+        .dropdown { position: relative; margin-left: 12px; }
+        .dropdown-btn { background: var(--accent); color: white; border: none; padding: 8px 18px; border-radius: 5px; font-weight: 600; font-size: 0.95rem; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+        .dropdown-btn:hover { background: #2980b9; }
+        .dropdown-btn .arrow { font-size: 0.7rem; transition: transform 0.2s; }
+        .dropdown:hover .arrow { transform: rotate(180deg); }
+        .dropdown-menu { display: none; position: absolute; top: calc(100% + 6px); right: 0; background: white; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 220px; overflow: hidden; z-index: 200; }
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu { display: block; }
+        .dropdown-menu .menu-header { background: var(--primary); color: white; padding: 10px 16px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .dropdown-menu a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; text-decoration: none; color: var(--text); font-weight: 500; border-bottom: 1px solid #f0f0f0; transition: background 0.15s; margin-left: 0; }
+        .dropdown-menu a:last-child { border-bottom: none; }
+        .dropdown-menu a:hover { background: #f0f7ff; color: var(--accent); }
+        .unit-icon { width: 32px; height: 32px; background: var(--light); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--primary); flex-shrink: 0; }
+        .unit-info { display: flex; flex-direction: column; }
+        .unit-info span { font-size: 0.95rem; font-weight: 600; color: var(--primary); }
+        .unit-info small { font-size: 0.75rem; color: #888; }
+        .page-header { background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%); color: white; padding: 3rem 5%; }
+        .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 0.75rem; }
+        .page-header p { opacity: 0.8; font-size: 1rem; }
+        .gallery-section { padding: 3rem 5%; flex: 1; }
+        .gallery-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .gallery-section .instructions { background: #f0f7ff; border-left: 4px solid var(--accent); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 1.5rem; font-size: 0.88rem; color: #444; line-height: 1.6; }
+        .gallery-section .instructions code { background: #dde8f5; padding: 1px 5px; border-radius: 3px; font-family: monospace; font-size: 0.85em; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
+        .gallery-item { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); aspect-ratio: 4/3; background: var(--light); cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.04); }
+        .empty-gallery { text-align: center; padding: 4rem 2rem; color: #aaa; }
+        .empty-gallery .icon { font-size: 4rem; margin-bottom: 1rem; }
+        .empty-gallery h3 { font-family: 'Playfair Display', serif; color: #bbb; margin-bottom: 0.5rem; }
+        .empty-gallery p { font-size: 0.9rem; }
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; flex-direction: column; }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 80vh; border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 20px; right: 28px; font-size: 2.5rem; color: white; cursor: pointer; background: none; border: none; line-height: 1; }
+        .lightbox-caption { color: rgba(255,255,255,0.7); margin-top: 12px; font-size: 0.9rem; }
+        footer { background: var(--primary); color: white; text-align: center; padding: 1.5rem; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">Towson View Properties</a>
+        <a href="../../index.html" class="logo">Towson View Properties</a>
         <div class="nav-links">
-            <a href="#portal">Tenant Portal</a>
-            <a href="#contact">Contact</a>
-
-            <!-- Units Dropdown -->
+            <a href="../../index.html#portal">Tenant Portal</a>
+            <a href="../../index.html#contact">Contact</a>
             <div class="dropdown">
-                <button class="dropdown-btn">
-                    Our Units <span class="arrow">▼</span>
-                </button>
+                <button class="dropdown-btn">Our Units <span class="arrow">▼</span></button>
                 <div class="dropdown-menu">
                     <div class="menu-header">Select a Unit</div>
-                    <a href="units/5602/index.html">
-                        <div class="unit-icon">🏠</div>
-                        <div class="unit-info">
-                            <span>Unit 5602</span>
-                            <small>View photos & details</small>
-                        </div>
-                    </a>
-                    <a href="units/5606/index.html">
-                        <div class="unit-icon">🏠</div>
-                        <div class="unit-info">
-                            <span>Unit 5606</span>
-                            <small>View photos & details</small>
-                        </div>
-                    </a>
-                    <a href="units/5610/index.html">
-                        <div class="unit-icon">🏠</div>
-                        <div class="unit-info">
-                            <span>Unit 5610</span>
-                            <small>View photos & details</small>
-                        </div>
-                    </a>
-                    <a href="units/5614/index.html">
-                        <div class="unit-icon">🏠</div>
-                        <div class="unit-info">
-                            <span>Unit 5614</span>
-                            <small>View photos & details</small>
-                        </div>
-                    </a>
+                    <a href="../5602/index.html"><div class="unit-icon">🏠</div><div class="unit-info"><span>Unit 5602</span><small>View photos &amp; details</small></div></a>
+                    <a href="../5606/index.html"><div class="unit-icon">🏠</div><div class="unit-info"><span>Unit 5606</span><small>View photos &amp; details</small></div></a>
+                    <a href="../5610/index.html"><div class="unit-icon">🏠</div><div class="unit-info"><span>Unit 5610</span><small>View photos &amp; details</small></div></a>
+                    <a href="../5614/index.html"><div class="unit-icon">🏠</div><div class="unit-info"><span>Unit 5614</span><small>View photos &amp; details</small></div></a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <h1>Welcome To Towson View Properties!</h1>
-        <p>Providing quality rental homes and exceptional tenant services.</p>
-        <a href="#units" class="btn">View Our Units</a>
-    </section>
+    <div class="page-header">
+        <a href="../../index.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">← Back to All Units</a>
+        <h1>Unit 5602</h1>
+        <p>Towson View Properties · Townhome with Garage</p>
+    </div>
 
-    <!-- Units Overview -->
-    <section class="units-overview" id="units">
-        <h2>Our Properties</h2>
-        <p class="subtitle">Four well-maintained townhome units available</p>
-        <div class="units-grid">
-            <a href="units/5602/index.html" class="unit-card">
-                <div class="unit-card-img">
-                    <div class="unit-number-badge">5602</div>
-                </div>
-                <div class="unit-card-body">
-                    <h3>Unit 5602</h3>
-                    <p>Townhome · Garage Included</p>
-                    <span class="unit-card-link">View Unit →</span>
-                </div>
-            </a>
-            <a href="units/5606/index.html" class="unit-card">
-                <div class="unit-card-img">
-                    <div class="unit-number-badge">5606</div>
-                </div>
-                <div class="unit-card-body">
-                    <h3>Unit 5606</h3>
-                    <p>Townhome · Garage Included</p>
-                    <span class="unit-card-link">View Unit →</span>
-                </div>
-            </a>
-            <a href="units/5610/index.html" class="unit-card">
-                <div class="unit-card-img">
-                    <div class="unit-number-badge">5610</div>
-                </div>
-                <div class="unit-card-body">
-                    <h3>Unit 5610</h3>
-                    <p>Townhome · Garage Included</p>
-                    <span class="unit-card-link">View Unit →</span>
-                </div>
-            </a>
-            <a href="units/5614/index.html" class="unit-card">
-                <div class="unit-card-img">
-                    <div class="unit-number-badge">5614</div>
-                </div>
-                <div class="unit-card-body">
-                    <h3>Unit 5614</h3>
-                    <p>Townhome · Garage Included</p>
-                    <span class="unit-card-link">View Unit →</span>
-                </div>
-            </a>
+    <section class="gallery-section">
+        <h2>Unit Photos</h2>
+        <div class="instructions">
+            <strong>📋 How to add photos:</strong> Upload your image files into the <code>units/5602/</code> folder on GitHub, then open <code>units/5602/images.json</code> and add each filename to the list.<br>
+            Example: <code>["kitchen.jpg", "living-room.jpg", "bedroom.png"]</code>
+        </div>
+        <div class="gallery-grid" id="gallery"></div>
+        <div class="empty-gallery" id="emptyState" style="display:none;">
+            <div class="icon">📷</div>
+            <h3>No photos yet</h3>
+            <p>Add image filenames to <code>units/5602/images.json</code> to display them here.</p>
         </div>
     </section>
 
-    <section class="services" id="portal">
-        <h2>Resident Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Pay Rent Online</h3>
-                <p>Securely pay your rent or set up auto-pay.</p>
-                <br>
-                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Login to Portal &rarr;</a>
-            </div>
-            <div class="card">
-                <h3>Maintenance Request</h3>
-                <p>Submit a work order for repairs or issues.</p>
-                <br>
-                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">Submit Request &rarr;</a>
-            </div>
-            <div class="card">
-                <h3>Lease Documents</h3>
-                <p>View your current lease and property guidelines.</p>
-                <br>
-                <a href="#" style="color: var(--accent); text-decoration: none; font-weight: bold;">View Documents &rarr;</a>
-            </div>
-        </div>
-    </section>
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="closeLightbox">&times;</button>
+        <img src="" alt="" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
 
-    <footer id="contact">
+    <footer>
         <p>&copy; 2026 Towson View Properties. All rights reserved.</p>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 10px;">Managed with integrity.</p>
     </footer>
+
+    <script>
+        const gallery = document.getElementById('gallery');
+        const emptyState = document.getElementById('emptyState');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+
+        fetch('images.json')
+            .then(r => r.json())
+            .then(images => {
+                if (!images || images.length === 0) {
+                    gallery.style.display = 'none';
+                    emptyState.style.display = 'block';
+                    return;
+                }
+                images.forEach((filename, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = filename;
+                    img.alt = 'Unit 5602 – photo ' + (i + 1);
+                    img.loading = 'lazy';
+                    img.onclick = () => {
+                        lightboxImg.src = filename;
+                        lightboxCaption.textContent = filename.replace(/[-_]/g, ' ').replace(/\.[^.]+$/, '');
+                        lightbox.classList.add('open');
+                    };
+                    item.appendChild(img);
+                    gallery.appendChild(item);
+                });
+            })
+            .catch(() => {
+                gallery.style.display = 'none';
+                emptyState.style.display = 'block';
+            });
+
+        document.getElementById('closeLightbox').onclick = () => lightbox.classList.remove('open');
+        lightbox.onclick = e => { if (e.target === lightbox) lightbox.classList.remove('open'); };
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+    </script>
 
 </body>
 </html>
