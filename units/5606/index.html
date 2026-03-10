@@ -32,10 +32,12 @@
         .page-header { background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%); color: white; padding: 3rem 5%; }
         .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 0.5rem; margin-top: 0.75rem; }
         .page-header p { opacity: 0.8; font-size: 1rem; }
+        .description-section { padding: 2.5rem 5% 0; }
+        .description-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 1rem; }
+        .description-section p { font-size: 1rem; line-height: 1.8; color: #444; margin-bottom: 1rem; }
+        .description-section p:last-child { margin-bottom: 0; }
         .gallery-section { padding: 3rem 5%; flex: 1; }
-        .gallery-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
-        .gallery-section .instructions { background: #f0f7ff; border-left: 4px solid var(--accent); padding: 12px 16px; border-radius: 0 6px 6px 0; margin-bottom: 1.5rem; font-size: 0.88rem; color: #444; line-height: 1.6; }
-        .gallery-section .instructions code { background: #dde8f5; padding: 1px 5px; border-radius: 3px; font-family: monospace; font-size: 0.85em; }
+        .gallery-section h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-bottom: 1.5rem; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; }
         .gallery-item { border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); aspect-ratio: 4/3; background: var(--light); cursor: pointer; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
@@ -78,12 +80,17 @@
         <p>Towson View Properties · Townhome with Garage</p>
     </div>
 
+    <section class="description-section">
+        <h2>About This Unit</h2>
+        <p>Welcome home to University Village! This immaculate, recently renovated two-story townhome offers 2 master bedrooms, 2.5 bathrooms, and 1,768 square feet of comfortable living space. The open-concept main level features vaulted ceilings, rounded wall corners, and a spacious living room that flows seamlessly into the kitchen, along with a convenient half bath.</p>
+        <p>The kitchen is equipped with stainless-steel appliances, including a dishwasher, electric glass-top range with hood, refrigerator, and disposal. It opens to the living room, which features a built-in gas log fireplace and sliding patio doors leading to a private patio—perfect for relaxing or entertaining.</p>
+        <p>Upstairs, the primary master suite is a true retreat, combining two rooms to create an expansive bedroom with a generous office or sitting area—ideal for working from home or unwinding in your own private space. This suite includes a private full bathroom. The second master bedroom is equally well-appointed with its own private full bath. A dedicated upstairs laundry room comes complete with an updated, full-size washer and dryer. Recent upgrades include stainless steel appliances, carpet and paint, luxury vinyl plank flooring on the main level, and luxury vinyl sheet flooring in the upstairs bathrooms. A well-maintained HVAC system and new central air conditioning are included.</p>
+        <p>The large unfinished basement provides abundant storage or flexible space for a gym or hobby area. An attached one-car garage offers additional storage with built-in shelving. The home also features central heating and air conditioning.</p>
+        <p>Located in a safe, quiet neighborhood with professionally maintained and landscaped common areas, this townhome borders the prestigious University Park community and is just minutes from the 584 acres of Austin Bluffs Open Space. Conveniently close to UCCS, shopping, and local businesses, this home offers both comfort and an unbeatable location.</p>
+    </section>
+
     <section class="gallery-section">
         <h2>Unit Photos</h2>
-        <div class="instructions">
-            <strong>📋 How to add photos:</strong> Upload your image files into the <code>units/5606/</code> folder on GitHub, then open <code>units/5606/images.json</code> and add each filename to the list.<br>
-            Example: <code>["kitchen.jpg", "living-room.jpg", "bedroom.png"]</code>
-        </div>
         <div class="gallery-grid" id="gallery"></div>
         <div class="empty-gallery" id="emptyState" style="display:none;">
             <div class="icon">📷</div>
